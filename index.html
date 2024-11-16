@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -23,10 +22,22 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            animation: pulse 2s ease-in-out infinite alternate;
         }
 
         .button:hover {
             background-color: #0056b3;
+            animation-play-state: paused;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
         }
 
         .page {
@@ -88,4 +99,5 @@
 </body>
 
 </html>
+
 
