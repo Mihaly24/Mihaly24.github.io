@@ -63,37 +63,13 @@
             height: auto;
             margin-bottom: 20px;
             border-radius: 50%;
-            border: 5px solid hsl(0, 0%, 100%);
-        }
-
-        .arrow {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid white;
-            animation: arrow 2s ease-in-out infinite alternate;
-        }
-
-        .arrow.up {
-            bottom: 40%;
-            transform: rotate(180deg);
-        }
-
-        .arrow.down {
-            top: 40%;
-            transform: rotate(0deg);
+            border: 5px solid #ffffff;
         }
     </style>
 </head>
 
 <body>
     <div id="page1" class="page">
-        <div class="arrow up"></div>
-        <div class="arrow down"></div>
-        <div class="arrow left"></div>
-        <div class="arrow right"></div>
         <button class="button" onclick="navigateToPage2()">Klik disiniii</button>
     </div>
 
