@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ayang Jlek</title>
+    <title>Ayang jlek</title>
     <style>
         html,
         body {
@@ -63,13 +63,47 @@
             height: auto;
             margin-bottom: 20px;
             border-radius: 50%;
-            border: 5px solid #ffffff;
+            border: 5px solid hsl(0, 0%, 100%);
+        }
+
+        .arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid white;
+            animation: arrow 2s ease-in-out infinite alternate;
+        }
+
+        .arrow.up {
+            bottom: 40%;
+            transform: rotate(180deg);
+        }
+
+        .arrow.down {
+            top: 40%;
+            transform: rotate(0deg);
+        }
+
+        .arrow.left {
+            right: 43%;
+            transform: rotate(90deg);
+        }
+
+        .arrow.right {
+            left: 43%;
+            transform: rotate(270deg);
         }
     </style>
 </head>
 
 <body>
     <div id="page1" class="page">
+        <div class="arrow up"></div>
+        <div class="arrow down"></div>
+        <div class="arrow left"></div>
+        <div class="arrow right"></div>
         <button class="button" onclick="navigateToPage2()">Klik disiniii</button>
     </div>
 
