@@ -11,6 +11,7 @@
             height: 100%;
             margin: 0;
             background-color: #f0f0f0;
+            transition: background-color 0.3s;
         }
 
         .button {
@@ -47,26 +48,40 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: opacity 0.3s, transform 0.3s;
         }
 
         #page1 {
             background-image: linear-gradient(to bottom, #0056b3, #007bff);
+            opacity: 1;
+            transform: scale(1);
         }
 
         #page2 {
             background-image: linear-gradient(to bottom, #ff0077, #ff1d7f);
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
         }
 
         .message {
             font-size: 36px;
             margin-bottom: 20px;
             color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .large-bold {
             font-size: 64px;
             font-weight: bold;
             color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         #image {
@@ -75,6 +90,31 @@
             margin-bottom: 20px;
             border-radius: 50%;
             border: 5px solid #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .type {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .type::after {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 100%;
+            background-color: #ffffff;
+            animation: type 2s steps(60, end) forwards;
+        }
+
+        @keyframes type {
+            to {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -84,20 +124,37 @@
         <button class="button" onclick="navigateToPage2()">Klik disiniii</button>
     </div>
 
-    <div id="page2" class="page" style="display: none;">
-        <p class="message">Jangan marah terus sayangg</p>
+    <div id="page2" class="page">
+        <p class="message" id="message">Jangan marah terus sayangg</p>
         <img id="image" src="photo_2024-11-16_22-09-24.jpg" alt="Your Image">
-        <p class="large-bold">Mwahhhh  <span style="font-size: 64px;">&#9829;&#9829;&#9829;</span></p>
+        <p class="large-bold">Mwahhhh <span style="font-size: 64px;">&#9829;&#9829;&#9829;</span></p>
     </div>
 
     <script>
         function navigateToPage2() {
-            document.getElementById('page1').style.display = 'none';
-            document.getElementById('page2').style.display = 'block';
+            document.body.style.background = '#ff0077';
+            setTimeout(function() {
+                document.getElementById('page1').style.opacity = '0';
+                document.getElementById('page1').style.transform = 'scale(0.8)';
+                document.getElementById('page1').style.pointerEvents = 'none';
+                document.getElementById('page2').style.opacity = '1';
+                document.getElementById('page2').style.transform = 'scale(1)';
+                document.getElementById('page2').style.pointerEvents = 'auto';
+
+                setTimeout(() => {
+                    document.querySelector('.message').style.opacity = '1';
+                }, 300);
+
+                setTimeout(() => {
+                    document.getElementById('image').style.opacity = '1';
+                }, 600);
+
+                setTimeout(() => {
+                    document.querySelector('.large-bold').style.opacity = '1';
+                }, 900);
+            }, 300);
         }
     </script>
 </body>
-
 </html>
-
 
